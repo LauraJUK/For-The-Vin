@@ -1,0 +1,87 @@
+{% extends "wineries/base.html" %}
+<head>
+{% block title %}For The Vin - List of Wineries{% endblock %}
+{% block addheadinfo %}	
+<style type="text/css">
+
+/*h1 {
+	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", Helvetica, Arial, sans-serif;
+	font-weight: normal;
+	}
+h2 {
+	font-size: 12pt;
+	font-family:"HelveticaNeue-Light", "Helvetica Neue Light", Helvetica, Arial, sans-serif;
+	font-weight: normal;
+	}
+#listwineries a {
+	color: black;
+	background-color: transparent;
+}
+#listwineries a:link {
+	display: block;
+	color: black;
+	background-color:#FFFFFF;
+	width:120px;
+	text-align:left;
+	padding: 0.25em;
+	text-decoration:none;
+	}
+#listwineries a:hover {
+	font-weight:bold;
+	}
+*/
+h1 {
+	font-family:"HelveticaNeue-Light","Helvetica Neue Light",Helvetica,Arial,sans-serif;
+	font-weight:normal
+}
+
+h2 {
+	font:12pt "helveticaneue-light","helvetica neue light",helvetica,arial,sans-serif normal
+}
+
+#listwineries a {
+	background:transparent
+}
+
+#listwineries a,#listwineries a:link {
+	color:black
+}
+
+#listwineries a:link {
+	background:#fff;
+	display:block;
+	width:120px;
+	text-align:left;
+	padding:0.25em;
+	text-decoration:none
+}
+
+#listwineries a:hover {
+	font-weight:bold
+}
+
+</style>
+{% endblock %}
+</head>
+	
+<body>	
+
+
+
+{% block content %}
+<div id="listwineries">	
+<h1>List of Wineries</h1>
+<h2>Click Winery Name For Details</h2>
+{% if wineries_list %}
+    <ul>
+    {% for winery in wineries_list %}
+        <li><a href="/wineries/{{ winery.id }}/">{{ winery.name }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No wineries are available.</p>
+{% endif %}
+{% endblock %}
+
+</body>
+	

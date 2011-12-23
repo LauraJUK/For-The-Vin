@@ -4,32 +4,7 @@
 {% block addheadinfo %}	
 <style type="text/css">
 
-/*h1 {
-	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", Helvetica, Arial, sans-serif;
-	font-weight: normal;
-	}
-h2 {
-	font-size: 12pt;
-	font-family:"HelveticaNeue-Light", "Helvetica Neue Light", Helvetica, Arial, sans-serif;
-	font-weight: normal;
-	}
-#listwineries a {
-	color: black;
-	background-color: transparent;
-}
-#listwineries a:link {
-	display: block;
-	color: black;
-	background-color:#FFFFFF;
-	width:120px;
-	text-align:left;
-	padding: 0.25em;
-	text-decoration:none;
-	}
-#listwineries a:hover {
-	font-weight:bold;
-	}
-*/
+
 h1 {
 	font-family:"HelveticaNeue-Light","Helvetica Neue Light",Helvetica,Arial,sans-serif;
 	font-weight:normal
@@ -48,9 +23,7 @@ h2 {
 }
 
 #listwineries a:link {
-	background:#fff;
 	display:block;
-	width:120px;
 	text-align:left;
 	padding:0.25em;
 	text-decoration:none
@@ -58,6 +31,13 @@ h2 {
 
 #listwineries a:hover {
 	font-weight:bold
+}
+table.center {
+	margin-left:auto;
+	margin-right:auto
+}
+td {
+	border-bottom: 1px solid #CCC;
 }
 
 </style>
@@ -73,15 +53,29 @@ h2 {
 <h1>List of Wineries</h1>
 <h2>Click Winery Name For Details</h2>
 {% if wineries_list %}
+    
+    
+    <!--Creates a list of winery names
     <ul>
     {% for winery in wineries_list %}
         <li><a href="/wineries/{{ winery.id }}/">{{ winery.name }}</a></li>
     {% endfor %}
-    </ul>
+    </ul>-->
+	
+	<!--Creates a table of winery names-->
+    <table class="center">
+    {% for winery in wineries_list %}
+        <tr>
+        <td><a href="/wineries/{{ winery.id }}/">{{ winery.name }}</a></td>
+        </tr>
+    {% endfor %}
+    </table>
+
 {% else %}
     <p>No wineries are available.</p>
 {% endif %}
 {% endblock %}
+</div>
 
 </body>
 	

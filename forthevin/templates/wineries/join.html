@@ -2,132 +2,80 @@
 <head>
 {% block title %}For The Vin - Coming Soon{% endblock %}
 {% block addheadinfo %}	
+{% load static %}
+<link rel="stylesheet" href="{% get_static_prefix %}css/ftvbase.css" type="text/css" media="screen" />
 <style type="text/css">
 
-/*
-h1 {
-	color: #000000;
-	font-family:"HelveticaNeue-Light", "Helvetica Neue Light", Helvetica, Arial, sans-serif;
-	font-size: 20pt;
-	font-weight: normal;
+.columns {
+	display: inline;
 }
-h2 {
-	color: #666666;
-	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", Helvetica, Arial, sans-serif;
-	font-size: 12pt;
-	font-weight: normal;
-
+.columnimage {
+	float: left;
+	width:250px;
+	height:250px;
+	margin-right:25px;
+	margin-left:25px;
 }
-#tableintro {
-	width: 308px;
-	margin-left: auto;
-	margin-right:auto;
-	text-align: justify;
+.columnimage span {
+	display: none;
 }
-
-ul {
-	font-family:"HelveticaNeue-Light", "Helvetica Neue Light", Helvetica, Arial, sans-serif; 
-	list-style-type: none; 
-	padding: 0; 
+.columnimage:hover span {
+	display: block;
 	margin: 0;
+	padding: 10px;
 }
-p {font-family: Georgia,Times,serif}
-
-table.center {
-	margin-left: auto;
-	margin-right: auto;
+#columnimage1 {
+	background:transparent url({% get_static_prefix %}/images/coaster_no1.gif);
+	width: 250px;
+	height: 250px;
 }
-th, tr,td {
-	text-align:left;
-	font-weight: normal;
-	}
-th {
-	width: 100px;
-	color: #666666;
+#columnimage2 {
+	background:transparent url({% get_static_prefix %}/images/coaster_no2.gif);
+	width: 250px;
+	height: 250px;
 }
-input {
-	width: 200px;
+#columnimage3 {
+	background:transparent url({% get_static_prefix %}/images/coaster_no3.gif);
+	width: 250px;
+	height: 250px;
 }
-*/
-h1 {
-	font:20pt "helveticaneue-light","helvetica neue light",helvetica,arial,sans-serif normal;
-	color:#000
+#columnimage1:hover {
+	background:transparent url({% get_static_prefix %}/images/coaster_v4.gif);
 }
-
-h2 {
-	font:12pt "helveticaneue-light","helvetica neue light",helvetica,arial,sans-serif normal
+#columnimage2:hover {
+	background:transparent url({% get_static_prefix %}/images/coaster_v4.gif);
 }
-
-h2,th {
-	color:#666
+#columnimage3:hover {
+	background:transparent url({% get_static_prefix %}/images/coaster_v4.gif);
 }
-
-#tableintro {
-	width:308px;
-	text-align:justify
-}
-
-#tableintro,table.center {
-	margin-left:auto;
-	margin-right:auto
-}
-
-ul {
-	font-family:"HelveticaNeue-Light","Helvetica Neue Light",Helvetica,Arial,sans-serif;
-	list-style-type:none;
-	padding:0;
-	margin:0
-}
-
-p {
-	font-family:Georgia,Times,serif
-}
-
-td,tr,th {
-	text-align:left;
-	font-weight:normal
-}
-
-th {
-	width:100px
-}
-
-input {
-	width:200px
-}
-
 </style>
 {% endblock %}
 </head>
 
 <body>
 {% block content %}
-	<!--<div id="tagline">
-		<h1>Planning a trip to Napa but don't know which wineries to visit? <br /> We can help</h1>
-	</div><!-- close div tagline -->
-	<!--<div id ="description">
-		<h2>How it works:</h2>
-		<h3>Pick a wine or two</h3>
-		<p>We'll select wineries that are good for what you like</p>
-		<h3>If there's a winery you know you want to visit, add this too</h3>
-		<p>So you don't miss out on your favorites</p>
-		<h4>Tell us how many wineries you can handle and we'll come up with a list of those we think you'll like</h4>
-		<h2>Sign up here</h2>
-	</div><!-- close div description -->
-
-	<div id="form">
-		<h1>Sign Up For Updates Here</h1>
-		<div id="tableintro">
-			<h2>I'm still working on getting the site ready. Enter your mailing list here and I'll let you know when the site is ready for launch.</h2>
-		</div>
-		<form action="." method="POST">
-   		<table class="center">
-   			{% csrf_token %}
-        {{ form.as_table }}
-    	</table>
-    	<p><input type="submit" value="Submit"></p>
-		</form>
-	</div><!-- close div form -->	
+<div class="pagecontent">
+<div class="pagetitle">
+	<h1>Planning a trip to Napa but don't know which wineries to visit? <br /> We can help.</h1>
+	<h2>Hover over the mats to see how it works.</h2>
+</div>
+<div class="columns">
+	<div class="columnimage">
+		<div id="columnimage1">
+		<span><h3>Wine Varietal</h3>
+		<p>We'll select wineries that are good for what you like.</p></span></div>
+	</div>	
+	<div class="columnimage">
+		<div id="columnimage2">
+		<span><h3>Winery</h3>
+		<p>If there's a winery you know you want to visit, add this too.</p></span></div>
+	</div>
+	<div class="columnimage">
+		<div id="columnimage3">
+		<span><h3>Number</h3>
+		<p>Tell us how many wineries you can handle and we'll come up with a list of those we think you'll like.</p></span></div>
+	</div>	
+</div>	
 {% endblock %}
-
+</div>
 </body>

@@ -11,10 +11,10 @@ MANAGERS = ADMINS
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3', # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': '/Users/laurajohnson/Documents/Aptana Studio 3 Workspace/forthevin/sqlite.db',                      # Or path to database file if using sqlite3.
-        'USER': '',                      # Not used with sqlite3.
-        'PASSWORD': '',                  # Not used with sqlite3.
+        'ENGINE': 'django.db.backends.mysql', # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
+        'NAME': 'forthevin',                      # Or path to database file if using sqlite3.
+        'USER': 'laura',                      # Not used with sqlite3.
+        'PASSWORD': 'laura1',                  # Not used with sqlite3.
         'HOST': '',                      # Set to empty string for localhost. Not used with sqlite3.
         'PORT': '',                      # Set to empty string for default. Not used with sqlite3.
     }
@@ -126,7 +126,7 @@ INSTALLED_APPS = (
     'forthevin.wineries',
     # Uncomment the next line to enable the admin:
      'django.contrib.admin',
-    # 'south'
+     'south'
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
     

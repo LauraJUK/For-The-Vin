@@ -1,20 +1,18 @@
 from django.conf.urls.defaults import patterns, include, url
 from django.conf import settings
-
-# Uncomment the next two lines to enable the admin:
 from django.contrib import admin
 admin.autodiscover()
+from django.views.generic import DetailView, ListView
+from wineries.models import Varietal
+
 
 urlpatterns = patterns('',
 
     (r'^$', 'forthevin.views.join'),
     
-#    Can I go directly to a template?
     
-    (r'^wineries/', include('wineries.urls')),
-    
-    # url(r'^forthevin/', include('forthevin.urls')),
-        # (r'^(?P<poll_id>\d+)/vote/$', 'polls.views.vote'),
+    (r'^wineries/', include('wineries.urls_wineries')),
+    (r'^varietals/', include('wineries.urls_varietals')),    
 
     # Examples:   
     # url(r'^$', 'forthevin.views.home', name='home'),

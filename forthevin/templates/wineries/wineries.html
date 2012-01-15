@@ -4,33 +4,23 @@
 {% block addheadinfo %}	
 <style type="text/css">
 
-
-h1 {
-	font-family:"HelveticaNeue-Light","Helvetica Neue Light",Helvetica,Arial,sans-serif;
-	font-weight:normal
-}
-
-h2 {
-	font:12pt "helveticaneue-light","helvetica neue light",helvetica,arial,sans-serif normal
-}
-
-#listwineries a {
+a {
 	background:transparent
 }
 
-#listwineries a,#listwineries a:link {
+a, a:link {
 	color:black
 }
 
-#listwineries a:link {
+a:link {
 	display:block;
 	text-align:left;
-	padding:0.25em;
+	padding:0;
 	text-decoration:none
 }
 
-#listwineries a:hover {
-	font-weight:bold
+a:hover {
+	color:#FF1493
 }
 table.center {
 	margin-left:auto;
@@ -38,6 +28,11 @@ table.center {
 }
 td {
 	border-bottom: 1px solid #CCC;
+}
+.column {
+	float:left; 
+	width:33%;
+	margin-bottom: 40px;
 }
 
 </style>
@@ -49,9 +44,11 @@ td {
 
 
 {% block content %}
-<div id="listwineries">	
-<h1>List of Wineries</h1>
-<h2>Click Winery Name For Details</h2>
+<div class="pagecontent">
+	<div class="pagetitle">
+	<h1>List of Wineries</h1>
+	<h2>Click Winery Name For Details</h2>
+	</div>
 {% if wineries_list %}
     
     
@@ -61,21 +58,40 @@ td {
         <li><a href="/wineries/{{ winery.id }}/">{{ winery.name }}</a></li>
     {% endfor %}
     </ul>-->
+    
+    <!-- a forloop to limit the rows in a list-->
+    {% for winery in wineries_list %}
+    	{% if forloop.first  %}
+    		
+    		<div class="clear"></div>
+    		<div class="column">
+    	{% endif %}
+    	<div class="winery">
+    		<a href="/wineries/{{ winery.id }}/">{{ winery.name }}</a>
+    	</div>
+    	{% if forloop.counter|divisibleby:10  %}
+    		</div>
+    		<div class="clear"></div>
+    		<div class="column">
+    	{% endif %}
+    	
+    	
+    {% endfor %}
 	
-	<!--Creates a table of winery names-->
+	<!--Creates a table of winery names
     <table class="center">
     {% for winery in wineries_list %}
         <tr>
         <td><a href="/wineries/{{ winery.id }}/">{{ winery.name }}</a></td>
         </tr>
     {% endfor %}
-    </table>
+    </table>-->
 
 {% else %}
     <p>No wineries are available.</p>
 {% endif %}
 {% endblock %}
 </div>
-
+</div>
 </body>
 	

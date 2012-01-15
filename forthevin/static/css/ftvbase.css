@@ -1,11 +1,11 @@
 
 #ftv {
-	background:transparent url(../images/ftv_clean_background_v7.gif) repeat 50% 0%;
+	color: black;
 	left:0px;
 	padding:0;
-	margin:40px 0 0;
-	width: 1265px;
-	height: 800px;
+	margin:60px 0 0;
+	width: 100%;
+	height: 100%;
 	}
 
 #ftv,#toc a:link,.clearfix:after {
@@ -25,48 +25,62 @@ body,ol,ul,li {
 	margin:0
 }
 
-body,h6,h5,h4,h3,h2,h1 {
-	font-weight:normal;
+body,h6,h5,h4,h3,h2,h1,ul,li {
+	font-family:"Myriad Pro","HelveticaNeue-Light",Helvetica,Arial,sans-serif;
 }
-
-body,h6,h5,h4,h3,h2,h1,ol,ul,li {
-	font-family:"HelveticaNeue-Light","Helvetica Neue Light",Helvetica,Arial,sans-serif;
+h1 {
+	font-weight:bold
 }
-
+body,h6,h5,h4,h3,h2,ol,ul,li {
+	font-weight:normal
+}
+p {
+	font-family:Georgia,Times,serif
+}
+li,ul,ol {
+	list-style-type:none;
+	padding:0
+}
 .sidebar,#content,#header,#logo,#toc li {
 	float:left;
 }
-
 .sidebar {
-	width:10%;
+	width:20%;
+	height:100%;
+	margin: 0;
+	background-color: transparent;
 }
+.logo {
+	background:transparent url(../images/logo_orange_raspberry_lj_w100h190.gif) repeat-x;
+	width:100px;
+	height:190px;
+	margin-left:2em;
 
+}
 #content,#toc a:link {
 	background:transparent;
 }
 
 #content {
-	width:960px;
-	margin:0 auto;
-	margin-top:420px;
-	text-align:center;
+	width:80%;
+	margin-bottom:40px;
+	text-align:left;
 }
 
 #header {
-	background:url(../images/header_wood_40px_dark.gif);
+	background-color:black;
 	width:100%;
-	height:40px;
+	height:60px;
 	top:0;
 	position:fixed;
-	border-bottom:1px solid #fff
+	display: inline;
 }
-
-#logo {
-	width:20%
+#toc ul{
+	font-size: 15px;
+	
 }
-
-#toc li {
-	margin-left:150px
+#toc {
+	float: left;
 }
 
 #toc a:hover,#toc a:link,#toc a,#toc a:link {
@@ -78,10 +92,12 @@ body,h6,h5,h4,h3,h2,h1,ol,ul,li {
 	display:block
 }
 
-#toc a:link,#toc a:link {
-	width:120px;
+#toc a:link {
 	text-align:left;
-	padding:10px
+	padding-left:10px;
+	padding-right: 40px;
+	padding-top: 21px;
+	padding-bottom: 19px;
 }
 
 #toc a:link,li,ul,ol,#toc a:link {
@@ -89,12 +105,26 @@ body,h6,h5,h4,h3,h2,h1,ol,ul,li {
 }
 
 #toc a:hover {
-	background:rgba(251,76,59,0.5)
+	background:rgba(153,153,153,0.5);
 }
-
-li,ul,ol {
-	list-style-type:none;
+#textlogo {
+	background:transparent url(../images/text_logo_whiteline_w135h60.png) repeat-x;
+	width:135px;
+	height:60px;
+	margin-left:2em;
+	float: left;
 	padding:0
+}
+.headerleft {
+	float: left;
+	width: 20%
+}
+.pagecontent {
+	width: 100%;
+	margin: 0 auto
+}
+.pagetitle {
+	height: 190px;
 }
 
 .clearfix:after {

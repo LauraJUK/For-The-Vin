@@ -20,6 +20,8 @@ def join(request):
 		form = UserForm()
 	return render_to_response('wineries/join.html', {'form': form}, RequestContext(request))
 
+#enter form for SelectVarietal here
+
 def thanks(request):
 	return render_to_response('wineries/thanks.html')
 

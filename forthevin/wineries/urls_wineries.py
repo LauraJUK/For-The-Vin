@@ -1,6 +1,6 @@
 from django.conf.urls.defaults import *
 from django.views.generic import DetailView, ListView
-from wineries.models import Winery, InterestedUser
+from wineries.models import Winery, InterestedUser, Varietal
 
 
 urlpatterns = patterns('',
@@ -8,12 +8,12 @@ urlpatterns = patterns('',
         ListView.as_view(
                          queryset=Winery.objects.all,
                          context_object_name='wineries_list',
-                         template_name='wineries/index.html')),                
+                         template_name='wineries/wineries.html')),            
     (r'^thanks/', 'forthevin.views.thanks'),
     (r'^(?P<pk>\d+)/$',
         DetailView.as_view(
                            model=Winery,
-                           template_name='wineries/detail.html')),
+                           template_name='wineries/wineries_pk_details.html')),
 
 )
 

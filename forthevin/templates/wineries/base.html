@@ -3,40 +3,39 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
 	{% load static %}
+	<style type="text/css">{% block addheadinfo %}{% endblock %}</style>
 	<link rel="stylesheet" href="{% get_static_prefix %}css/ftvbase.css" type="text/css" media="screen" />
-	<link rel="shortcut icon" href="{% get_static_prefix %}images/favicon.gif" type="image/x-icon" />
+	<link rel="shortcut icon" href="{% get_static_prefix %}images/favicon_scenery.ico" type="image/x-icon" />
 	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
 	<meta name="Keywords" content="wineries,tour, Napa, wine" />
 	<meta name="Description" content="Planning a trip to Napa but don't know which wineries to visit? We can help" />
 	<title>{% block title %}For The Vin{% endblock %}</title>
-	<div id="addheadinfo"> 
-		{% block addheadinfo %}{% endblock %}
-	</div><!-- close div addheadinfo -->
+
+
 
 </head>
 
 <body>
 
-<div id = "ftv">	
-<div id="containall">
+<div id = "ftv">
 	<div id="header">
-	
+		<div class = "headerleft">
+			<a href="/" title="For The Vin's Home" id="textlogo"></a>
+		</div>
 		<div id="toc">
 			<ul>
 				<li><a href="/">Home</a></li>
+				<li><a href="/varietals/">Varietals</a></li>
 				<li><a href="/wineries/">Wineries</a></li>
 			</ul>
-		</div><!-- close div toc -->			
-	</div><!-- close div header -->
-
-<div class="sidebar">&nbsp;</div>
-<div id="content">
+		</div>			
+	</div>
+	<div class="sidebar">&nbsp;
+		<div class="logo"></div>
+	</div>
+	<div id="content">
 	{% block content %}{% endblock %}
-</div><!-- close div content -->
-
-<div class="sidebar">&nbsp;</div>
-
-</div><!-- close div containall -->
+	</div>
 </div>
 </body>
 </html>

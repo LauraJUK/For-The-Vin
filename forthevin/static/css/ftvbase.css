@@ -25,17 +25,17 @@ body,ol,ul,li {
 	margin:0
 }
 
-body,h6,h5,h4,h3,h2,h1,ul,li {
+body,h6,h5,h4,h3,h2,h1,ul,li,p {
 	font-family:"Myriad Pro","HelveticaNeue-Light",Helvetica,Arial,sans-serif;
+	padding:0
 }
 h1 {
-	font-weight:bold
+	font-weight:bold;
+	margin-top: 0;
 }
 body,h6,h5,h4,h3,h2,ol,ul,li {
-	font-weight:normal
-}
-p {
-	font-family:Georgia,Times,serif
+	font-weight:normal;
+	padding:0
 }
 li,ul,ol {
 	list-style-type:none;
@@ -48,14 +48,18 @@ li,ul,ol {
 	width:20%;
 	height:100%;
 	margin: 0;
-	background-color: transparent;
+	background-color: white;
 }
 .logo {
-	background:transparent url(../images/logo_orange_raspberry_lj_w100h190.gif) repeat-x;
-	width:100px;
-	height:190px;
-	margin-left:2em;
+	background:transparent url(../images/logo_pink_lj_w150h250.jpg) repeat-x;
+	width:150px;
+	height:250px;
+	margin-left:1em;
+	margin-top:1em
 
+}
+.logospace {
+	height: 0px;
 }
 #content,#toc a:link {
 	background:transparent;
@@ -121,10 +125,10 @@ li,ul,ol {
 }
 .pagecontent {
 	width: 100%;
-	margin: 0 auto
 }
 .pagetitle {
-	height: 190px;
+	height: 150px;
+	padding-top: 2em;
 }
 
 .clearfix:after {

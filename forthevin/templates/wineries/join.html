@@ -9,45 +9,24 @@
 .columns {
 	display: inline;
 }
-.columnimage {
+.linkmats {
 	float: left;
 	width:250px;
 	height:250px;
-	margin-right:25px;
-	margin-left:25px;
-}
-.columnimage span {
-	display: none;
-}
-.columnimage:hover span {
-	display: block;
-	margin: 0;
-	padding: 10px;
-}
-#columnimage1 {
-	background:transparent url({% get_static_prefix %}/images/coaster_no1.gif);
+	margin-right:50px;
 	width: 250px;
 	height: 250px;
 }
-#columnimage2 {
-	background:transparent url({% get_static_prefix %}/images/coaster_no2.gif);
-	width: 250px;
-	height: 250px;
+a:link {
+	text-decoration:none;
 }
-#columnimage3 {
-	background:transparent url({% get_static_prefix %}/images/coaster_no3.gif);
-	width: 250px;
-	height: 250px;
+a,a:link {
+	color:black
 }
-#columnimage1:hover {
-	background:transparent url({% get_static_prefix %}/images/coaster_v4.gif);
+a:hover {
+	color:#ff1493;
 }
-#columnimage2:hover {
-	background:transparent url({% get_static_prefix %}/images/coaster_v4.gif);
-}
-#columnimage3:hover {
-	background:transparent url({% get_static_prefix %}/images/coaster_v4.gif);
-}
+
 </style>
 {% endblock %}
 </head>
@@ -57,24 +36,21 @@
 <div class="pagecontent">
 <div class="pagetitle">
 	<h1>Planning a trip to Napa but don't know which wineries to visit? <br /> We can help.</h1>
-	<h2>Hover over the mats to see how it works.</h2>
+	<h2>Search by:</h2>
 </div>
 <div class="columns">
-	<div class="columnimage">
-		<div id="columnimage1">
-		<span><h3>Wine Varietal</h3>
-		<p>We'll select wineries that are good for what you like.</p></span></div>
+	<div class="linkmats">		
+		<a href="/varietals/" title="Varietals" id="varietalsmat">
+			<h2>Wine Varietal</h2>
+			<p>Click here to see the wineries that are good for the wines you like.</p>
+		</a>
 	</div>	
-	<div class="columnimage">
-		<div id="columnimage2">
-		<span><h3>Winery</h3>
-		<p>If there's a winery you know you want to visit, add this too.</p></span></div>
+	<div class="linkmats">		
+		<a href="/wineries/" title="Wineries" id="wineriesmat">
+			<h2>Winery</h2>
+			<p>Click here to learn about the wineries and the wines they produce. I'll add more to our list of wineries soon.</p>
+		</a>
 	</div>
-	<div class="columnimage">
-		<div id="columnimage3">
-		<span><h3>Number</h3>
-		<p>Tell us how many wineries you can handle and we'll come up with a list of those we think you'll like.</p></span></div>
-	</div>	
 </div>	
 {% endblock %}
 </div>

@@ -1,0 +1,90 @@
+{% extends "wineries/base.html" %}
+<head>
+{% block title %}For The Vin - List of Varietals{% endblock %}
+{% block addheadinfo %}	
+<style type="text/css">
+
+.pagetitle {
+	margin-bottom: 40px;
+}
+a {
+	background:transparent
+}
+
+a,a:link {
+	color:black
+}
+
+a:link {
+	display:block;
+	text-align:left;
+	padding:0;
+	text-decoration:none
+}
+
+a:hover {
+	color:#FF1493
+}
+table.center {
+	margin-left:auto;
+	margin-right:auto
+}
+td {
+	border-bottom: 1px solid #CCC;
+}
+.column {
+	float:left; 
+	width:33%;
+	margin-bottom: 40px;
+}
+</style>
+{% endblock %}
+</head>
+	
+<body>	
+
+
+
+{% block content %}
+<div class="pagecontent">
+	<div class="pagetitle">	
+	<h1>List of Varietals</h1>
+	<h2>Click on a varietal to see which wineries are good for that varietal.</h2>
+	</div>
+{% if varietals_list %}
+
+	<!-- a forloop to limit the rows in a list-->
+    {% for varietal in varietals_list %}
+    	{% if forloop.first  %}
+    		
+    		<div class="clear"></div>
+    		<div class="column">
+    	{% endif %}
+    	<div class="varietal">
+    		<a href="/varietals/{{ varietal.id }}/">{{ varietal.name }}</a>
+    	</div>
+    	{% if forloop.counter|divisibleby:10  %}
+    		</div>
+    		<div class="clear"></div>
+    		<div class="column">
+    	{% endif %}
+    
+    {% endfor %}
+    
+	<!--Creates a table of winery names
+    <table class="center">
+    {% for varietal in varietals_list %}
+        <tr>
+        <td><a href="/varietals/{{ varietal.id }}/">{{ varietal.name }}</a></td>
+        </tr>
+    {% endfor %}
+    </table>-->
+
+{% else %}
+    <p>No varietals are available.</p>
+{% endif %}
+{% endblock %}
+</div>
+</div>
+</body>
+	

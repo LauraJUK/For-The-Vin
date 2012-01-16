@@ -53,10 +53,13 @@ a, a:link {
 	<div id="otherwineries"><h2>{{ winery.name }} is Good for The Following Varietals:</h2>
 	<ul>		
 	{% for varietal in winery.varietals.all %}
-		<li><div id="varietalname">{{ varietal }}</div><br>This varietal is also at:<br> 
-		{% for w in varietal.winery_set.all %}
+		<li><div id="varietalname">
+				<a href="/varietals/{{ varietal.id }}/">{{ varietal.name }}</a>
+    		</div><br>This varietal is also at:<br> 
+		{% for w in varietal.winery_set.all|slice:":4" %}
 			<span><a href="/wineries/{{ w.id }}/">{{ w.name }}</a>{% if not forloop.last %},{% endif %}</span>
 		{% endfor %}
+			<a href="/varietals/{{ varietal.id }}/">... see more.</a>
 		</li>
 	{% endfor %}
 	</ul>

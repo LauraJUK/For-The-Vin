@@ -4,10 +4,37 @@
 	left:0px;
 	padding:0;
 	margin:60px 0 0;
-	width: 100%;
-	height: 100%;
+	width: 100%
 	}
+.sidebar {
+	min-width:160px;
+	width:20%;
+	margin: 0;
+	background-color: white;
+}
+#content {
+	width: 75%;
+	max-width: 1060px;
+	padding-bottom: 60px:
+	text-align:left;
+	margin-right: 2em;
+	min-height: 350px;
+}
 
+#header {
+	background-color:black;
+	width:100%;
+	height:60px;
+	top:0;
+	position:fixed;
+	display: inline;
+}
+#footer {
+   	width:100%;
+   	height:60px;  
+   	float: left;
+   	display: block;
+}
 #ftv,#toc a:link,.clearfix:after {
 	display:block
 }
@@ -44,14 +71,9 @@ li,ul,ol {
 .sidebar,#content,#header,#logo,#toc li {
 	float:left;
 }
-.sidebar {
-	width:20%;
-	height:100%;
-	margin: 0;
-	background-color: white;
-}
+
 .logo {
-	background:transparent url(../images/logo_pink_lj_w150h250.jpg) repeat-x;
+	background:transparent url(../images/logo_raspberry_grey_w150h250.png) repeat-x;
 	width:150px;
 	height:250px;
 	margin-left:1em;
@@ -65,20 +87,7 @@ li,ul,ol {
 	background:transparent;
 }
 
-#content {
-	width:80%;
-	margin-bottom:40px;
-	text-align:left;
-}
 
-#header {
-	background-color:black;
-	width:100%;
-	height:60px;
-	top:0;
-	position:fixed;
-	display: inline;
-}
 #toc ul{
 	font-size: 15px;
 	
@@ -121,16 +130,24 @@ li,ul,ol {
 }
 .headerleft {
 	float: left;
-	width: 20%
-}
-.pagecontent {
-	width: 100%;
-}
-.pagetitle {
-	height: 150px;
-	padding-top: 2em;
+	min-width: 180px;
+	width: 20%;
 }
 
+.pagetitle {
+	padding-top: 2em;
+	padding-bottom:1em;
+}
+
+#footer a{
+	width: 32px;
+	float: left;
+	margin-right: 0.5em;
+}
+#contactbuttons {
+	margin-left: 20%;
+	padding-top: 1em;
+}
 .clearfix:after {
 	content:".";
 	visibility:hidden;

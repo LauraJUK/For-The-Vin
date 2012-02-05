@@ -10,7 +10,7 @@ urlpatterns = patterns('',
                          context_object_name='wineries_list',
                          template_name='wineries/wineries.html')),            
     (r'^thanks/', 'forthevin.views.thanks'),
-    (r'^(?P<pk>\d+)/$',
+    (r'^(?P<slug>[-\w]+)/$',
         DetailView.as_view(
                            model=Winery,
                            template_name='wineries/wineries_pk_details.html')),

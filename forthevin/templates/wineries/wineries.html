@@ -51,23 +51,13 @@ td {
 	</div>
 {% if wineries_list %}
     
-    
-    <!--Creates a list of winery names
-    <ul>
-    {% for winery in wineries_list %}
-        <li><a href="/wineries/{{ winery.id }}/">{{ winery.name }}</a></li>
-    {% endfor %}
-    </ul>-->
-    
-    <!-- a forloop to limit the rows in a list-->
     {% for winery in wineries_list %}
     	{% if forloop.first  %}
-    		
     		<div class="clear"></div>
     		<div class="column">
     	{% endif %}
     	<div class="winery">
-    		<a href="/wineries/{{ winery.id }}/">{{ winery.name }}</a>
+    		<a href="/wineries/{{ winery.slug }}/">{{ winery.name }}</a>
     	</div>
     	{% if forloop.counter|divisibleby:10  %}
     		</div>
@@ -77,21 +67,12 @@ td {
     	
     	
     {% endfor %}
-	
-	<!--Creates a table of winery names
-    <table class="center">
-    {% for winery in wineries_list %}
-        <tr>
-        <td><a href="/wineries/{{ winery.id }}/">{{ winery.name }}</a></td>
-        </tr>
-    {% endfor %}
-    </table>-->
 
 {% else %}
     <p>No wineries are available.</p>
 {% endif %}
+</div>
+</div>
 {% endblock %}
-</div>
-</div>
 </body>
 	

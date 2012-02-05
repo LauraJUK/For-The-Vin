@@ -1,15 +1,21 @@
 from django.db import models
 from django.utils.functional import lazy
 from django.core.urlresolvers import reverse
+from django.db.models import permalink
+from django.template.defaultfilters import slugify
 
 reverse_lazy = lambda name=None, *args : lazy(reverse, str)(name, args=args)
 
 class Varietal(models.Model):
     name = models.CharField(max_length=100)
+    slug = models.SlugField()
+    color = models.CharField(max_length=100)
+                    
     def __unicode__(self):
         return self.name
     class Meta:
         ordering = ['name']
+
         
 class Winery(models.Model):
     name = models.CharField(max_length=100)
@@ -19,13 +25,21 @@ class Winery(models.Model):
     state = models.CharField(max_length=20)
     zip = models.CharField(max_length=100)
     varietals = models.ManyToManyField(Varietal)
+    slug = models.SlugField()
+
     def __unicode__(self):
         return self.name
     
     def get_absolute_url(self):
-        url =  reverse_lazy('forthevin.wineries', [self.id])
+        url =  reverse_lazy('forthevin.wineries', [self.slug])
         print url 
         return url
+    
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = slugify(self.name)
+        super(Winery, self).save(*args, **kwargs)
+        
     class Meta:
         ordering = ['name']
 

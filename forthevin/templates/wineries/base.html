@@ -8,10 +8,22 @@
 	<link rel="shortcut icon" href="{% get_static_prefix %}images/favicon_scenery.ico" type="image/x-icon" />
 	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
 	<meta name="Keywords" content="wineries,tour, Napa, wine" />
-	<meta name="Description" content="Planning a trip to Napa but don't know which wineries to visit? We can help" />
+	<meta name="Description" content="For The Vin helps you find Napa wineries based on the wines you like." />
 	<title>{% block title %}For The Vin{% endblock %}</title>
-
-
+	<script type="text/javascript">
+	
+	  var _gaq = _gaq || [];
+	  _gaq.push(['_setAccount', 'UA-28380444-1']);
+	  _gaq.push(['_setDomainName', 'forthevin.com']);
+	  _gaq.push(['_trackPageview']);
+	
+	  (function() {
+	    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+	    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+	    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+	  })();
+	
+	</script>
 
 </head>
 
@@ -27,7 +39,7 @@
 				<li><a href="/">Home</a></li>
 				<li><a href="/varietals/">Varietals</a></li>
 				<li><a href="/wineries/">Wineries</a></li>
-				<li><a href="http://blog.forthevin.com">Blog</a></li>
+				<li><a href="http://blog.forthevin.com" target = "_blank">Blog</a></li>
 			</ul>
 		</div>			
 	</div>
@@ -37,6 +49,12 @@
 	</div>
 	<div id="content">
 	{% block content %}{% endblock %}
+	</div>
+	<div id="footer">
+		<div id="contactbuttons">
+		<a href="https://www.facebook.com/forthevin" TARGET="_blank"><img src="http://www.buttonshut.com/Facebook-Buttons/Facebook-Buttons-24-88-.png" title="For The Vin on facebook" width="32px" border="0"/></a>
+		<a href="http://www.linkedin.com/in/laujohnson" TARGET="_blank"><img src="http://www.buttonshut.com/LinkedIn-Buttons/linkedin-tiny-square2.png" title="Me on LinkedIn" width="32px" border="0"/></a>
+		</div>	
 	</div>
 </div>
 </body>

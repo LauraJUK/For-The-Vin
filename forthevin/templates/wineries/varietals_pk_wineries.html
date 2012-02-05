@@ -45,7 +45,7 @@ a, a:link {
     		<div class="column">
     	{% endif %}
     	<div class="winery">
-    		<a href="/wineries/{{winery.id}}/">{{ winery.name }}</a>
+    		<a href="/wineries/{{winery.slug}}/">{{ winery.name }}</a>
     	</div>
     	{% if forloop.counter|divisibleby:10  %}
     		</div>
@@ -72,6 +72,7 @@ a, a:link {
 {% else %}
     <p>We don't have any wineries listed as good for that varietal.</p>
 {% endif %}
-{% endblock %}
 </div>
+</div>
+{% endblock %}
 </body>

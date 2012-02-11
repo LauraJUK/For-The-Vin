@@ -2,14 +2,18 @@
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
+	<title>{% block title %}For The Vin{% endblock %}</title>
 	{% load static %}
-	<style type="text/css">{% block addheadinfo %}{% endblock %}</style>
-	<link rel="stylesheet" href="{% get_static_prefix %}css/ftvbase.css" type="text/css" media="screen" />
-	<link rel="shortcut icon" href="{% get_static_prefix %}images/favicon_scenery.ico" type="image/x-icon" />
-	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+	<link rel="stylesheet" href="{% get_static_prefix %}css/ftvbase.css" type="text/css" media="screen" >
+	<!--[if (IE 6)|(IE 7)]>
+	<link rel="stylesheet" href="{% get_static_prefix %}css/ftvbase_ie67.css" type="text/css" media="screen">
+	<![endif]-->
+	<link rel="shortcut icon" href="{% get_static_prefix %}images/favicon_scenery.ico" type="image/x-icon" >
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<meta name="Keywords" content="wineries,tour, Napa, wine" />
 	<meta name="Description" content="For The Vin helps you find Napa wineries based on the wines you like." />
-	<title>{% block title %}For The Vin{% endblock %}</title>
+
+	<style type="text/css">{% block addheadinfo %}{% endblock %}</style>
 	<script type="text/javascript">
 	
 	  var _gaq = _gaq || [];
@@ -52,8 +56,8 @@
 	</div>
 	<div id="footer">
 		<div id="contactbuttons">
-		<a href="https://www.facebook.com/forthevin" TARGET="_blank"><img src="http://www.buttonshut.com/Facebook-Buttons/Facebook-Buttons-24-88-.png" title="For The Vin on facebook" width="32px" border="0"/></a>
-		<a href="http://www.linkedin.com/in/laujohnson" TARGET="_blank"><img src="http://www.buttonshut.com/LinkedIn-Buttons/linkedin-tiny-square2.png" title="Me on LinkedIn" width="32px" border="0"/></a>
+		<a href="https://www.facebook.com/forthevin" TARGET="_blank"><img src="http://www.buttonshut.com/Facebook-Buttons/Facebook-Buttons-24-88-.png" title="For The Vin on facebook" alt = "Link to facebook" width="32px" border="0"/></a>
+		<a href="http://www.linkedin.com/in/laujohnson" TARGET="_blank"><img src="http://www.buttonshut.com/LinkedIn-Buttons/linkedin-tiny-square2.png" title="Me on LinkedIn" alt = "Link to Linkedin" width="32px" border="0"/></a>
 		</div>	
 	</div>
 </div>

@@ -6,10 +6,22 @@ from django.template.defaultfilters import slugify
 
 reverse_lazy = lambda name=None, *args : lazy(reverse, str)(name, args=args)
 
+COLOR_RED = 0
+COLOR_ROSE = 1
+COLOR_SPARKLING =2
+COLOR_WHITE = 3
+
+COLOR_CHOICES = (
+                 (COLOR_RED, 'red'), 
+                 (COLOR_ROSE, 'rose'), 
+                 (COLOR_SPARKLING, 'sparkling'), 
+                 (COLOR_WHITE, 'white'))
+
 class Varietal(models.Model):
     name = models.CharField(max_length=100)
     slug = models.SlugField()
-    color = models.CharField(max_length=100)
+    #color = models.CharField(max_length=100)
+    color = models.IntegerField(choices=COLOR_CHOICES) #still need to run migration
                     
     def __unicode__(self):
         return self.name

@@ -12,13 +12,14 @@
 	margin: 0;
 	background-color: white;
 }
+/* appearing in final? */
 #content {
 	width: 75%;
 	max-width: 1060px;
 	padding-bottom: 60px:
 	text-align:left;
 	margin-right: 2em;
-	min-height: 350px;
+	min-height: 350px
 }
 
 #header {
@@ -68,7 +69,7 @@ li,ul,ol {
 	list-style-type:none;
 	padding:0
 }
-.sidebar,#content,#header,#logo,#toc li {
+.sidebar,#content,#header,#logo, #toc, #toc li {
 	float:left;
 }
 
@@ -87,15 +88,10 @@ li,ul,ol {
 	background:transparent;
 }
 
-
 #toc ul{
 	font-size: 15px;
 	
 }
-#toc {
-	float: left;
-}
-
 #toc a:hover,#toc a:link,#toc a,#toc a:link {
 	color:#fff
 }
@@ -107,13 +103,13 @@ li,ul,ol {
 
 #toc a:link {
 	text-align:left;
-	padding-left:10px;
-	padding-right: 40px;
+	padding-left:0.5em;
+	padding-right: 2.5em;
 	padding-top: 21px;
 	padding-bottom: 19px;
 }
 
-#toc a:link,li,ul,ol,#toc a:link {
+a:link,li,ul,ol {
 	text-decoration:none
 }
 
@@ -148,9 +144,15 @@ li,ul,ol {
 	margin-left: 20%;
 	padding-top: 1em;
 }
+.clearfix:before,
 .clearfix:after {
-	content:".";
-	visibility:hidden;
-	height:0;
-	clear:both
+    content:"";
+    display:table;
+}
+.clearfix:after {
+    clear:both;
+}
+/* For IE 6/7 (trigger hasLayout) */
+.clearfix {
+    zoom:1;
 }

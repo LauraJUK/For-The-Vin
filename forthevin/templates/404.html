@@ -1,0 +1,14 @@
+{% extends "wineries/base.html" %}
+<head>
+{% block title %}For The Vin - Page Not Found{% endblock %}	
+{% load static %}
+<link rel="stylesheet" href="{% get_static_prefix %}css/ftvbase.css" type="text/css" media="screen" />
+<body>
+{% block content %}
+<div class="pagetitle">
+<h1>Page not found</h1>
+
+<p>Sorry, but the requested page could not be found.</p>
+</div>
+{% endblock %}
+</body>

@@ -33,7 +33,7 @@ a, a:link {
 {% block content %}
 <div class="pagecontent">
 	<div class="pagetitle">
-	<h1>Wineries Good For {{ varietal.name }}</h1>
+	<h1>Wineries Good For {{ varietal.color }}</h1>
 	</div>
 {% if varietal.winery_set.all %}
 
@@ -54,6 +54,20 @@ a, a:link {
     	{% endif %}
     	
     {% endfor %}
+		<!--Creates a table of winery names
+		<table class="center">	
+		{% for winery in varietal.winery_set.all %}
+			<tr>
+			<td><a href="/wineries/{{winery.id}}/">{{ winery.name }}</a></td>
+			<td>{{ winery.address1 }}</td>
+			<td>{{ winery.address2 }}</td>
+			<td>{{ winery.city }}</td>
+			<td>{{ winery.state }}</td>
+			<td>{{ winery.zip }}</td>
+			</tr>
+		{% endfor %}
+		</table>-->
+	
 
 {% else %}
     <p>We don't have any wineries listed as good for that varietal.</p>

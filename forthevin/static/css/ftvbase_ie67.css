@@ -1,0 +1,27 @@
+ 
+#content {
+	min-height: 350px;
+	height:auto !important; 
+	height:350px;
+}
+
+#toc a:link {
+	background:transparent;
+	display:block
+}
+
+#toc a:link {
+	text-align:left;
+	padding-left:0.5em;
+	padding-right: 2.5em;
+	padding-top: 1.5em;
+}
+
+a:link,li,ul,ol, a:hover, a:link:hover {
+	text-decoration:none
+}
+
+#toc a:hover a:link:hover {
+	color:#ff1493;
+	text-decoration:none;
+}

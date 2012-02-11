@@ -1,4 +1,4 @@
-from django.conf.urls.defaults import patterns, include, url
+from django.conf.urls.defaults import *
 from django.conf import settings
 from django.contrib import admin
 admin.autodiscover()
@@ -12,7 +12,7 @@ urlpatterns = patterns('',
     
     
     (r'^wineries/', include('wineries.urls_wineries')),
-    (r'^varietals/', include('wineries.urls_varietals')),    
+    (r'^varietals/', include('wineries.urls_varietals')),  
 
     # Examples:   
     # url(r'^$', 'forthevin.views.home', name='home'),
@@ -22,6 +22,7 @@ urlpatterns = patterns('',
 
     # Uncomment the next line to enable the admin:
      url(r'^admin/', include(admin.site.urls)),
+     
 )
 
 if True:

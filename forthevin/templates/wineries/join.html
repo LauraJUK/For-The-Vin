@@ -12,8 +12,7 @@
 .linkmats {
 	float: left;
 	width:230px;
-	padding-left:1em;
-	padding-right:1em;
+	padding:1em;
 	margin-right:50px;
 	background-color: #E0E0E0;
 	min-height: 170px
@@ -22,10 +21,12 @@ a:link {
 	text-decoration:none;
 }
 a,a:link {
-	color:black
+	color:black;
+	text-decoration:none;
 }
 a:hover {
 	color:#ff1493;
+	text-decoration:none;
 }
 span {
 	color:#ff1493;
@@ -34,6 +35,15 @@ p {
 	text-align: justify;
 }
 </style>
+<!--[if IE 7]>
+<style type="text/css">
+.linkmats {
+	min-height: 170px;
+	height:auto !important; 
+	height:170px;
+}
+</style>
+<![endif]-->
 {% endblock %}
 </head>
 
@@ -60,7 +70,7 @@ p {
 	</div>
 </div>	
 <div class="clearfix"></div>
-<div id "intro">
+<div id = "intro">
 	<h2>Background</h2>
 	<p>I’ve been building For The Vin since I tried to plan a trip to Napa and realised that I didn’t know how to choose from all of the hundreds of wineries and tasting rooms there. I thought it would be a good idea to at least narrow down my choice based on the sorts of wines I like. I’m a big Pinot Noir fan so I’ll probably like the wineries that produce excellent Pinot Noirs. I realise that people do manage to go to Napa and have a great time, regardless of the sorts of wineries they end up at. I’m just trying to make the experience better, more customised.</p>
 	<p>Ultimately, I want For The Vin to be a trip planning tool where you can select which wine varietal you like, and how many wineries you want to visit, and it will generate a list of wineries that are relatively close to, or easy to get to from, each other, with maps and directions. To find out more about the story of For The Vin, go to <a href="http://blog.forthevin.com" target = "_blank">blog.forthevin.com</a></p>

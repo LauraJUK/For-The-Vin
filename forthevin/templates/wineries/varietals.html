@@ -51,10 +51,11 @@ td {
 	<h1>List of Varietals</h1>
 	<h2>Click on a varietal to see which wineries are good for that varietal.</h2>
 	</div>
+	
 {% if varietals_list %}
-
-	<!-- a forloop to limit the rows in a list-->
-    {% for varietal in varietals_list %}
+    	
+    {% for varietal in varietals_list %}   
+    	<!-- a forloop to limit the rows in a list--> 
     	{% if forloop.first  %}
     		
     		<div class="clear"></div>

@@ -31,6 +31,8 @@ urlpatterns = patterns('',
                            model=Varietal,
                            template_name='wineries/varietals_pk_wineries.html')),
 
+
+
 )
 
 

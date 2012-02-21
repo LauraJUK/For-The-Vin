@@ -4,9 +4,10 @@
 <head>
 	<title>{% block title %}For The Vin{% endblock %}</title>
 	{% load static %}
-	<link rel="stylesheet" href="{% get_static_prefix %}css/ftvbase.css" type="text/css" media="screen" >
+	<link rel="stylesheet" href="{% get_static_prefix %}css/base.css" type="text/css" media="screen" >
+	<link rel="stylesheet" href="{% get_static_prefix %}css/formatting.css" type="text/css" media="screen" >
 	<!--[if (IE 6)|(IE 7)]>
-	<link rel="stylesheet" href="{% get_static_prefix %}css/ftvbase_ie67.css" type="text/css" media="screen">
+	<link rel="stylesheet" href="{% get_static_prefix %}css/base_ie67.css" type="text/css" media="screen">
 	<![endif]-->
 	<link rel="shortcut icon" href="{% get_static_prefix %}images/favicon_scenery.ico" type="image/x-icon" >
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -40,10 +41,10 @@
 		</div>
 		<div id="toc">
 			<ul>
-				<li><a href="/">Home</a></li>
-				<li><a href="/varietals/">Varietals</a></li>
-				<li><a href="/wineries/">Wineries</a></li>
-				<li><a href="http://blog.forthevin.com" target = "_blank">Blog</a></li>
+				<li><a href="/" title="Home" alt = "Home" id="home"></a></li>
+				<li><a href="/varietals/" title="Varietals" alt="Varietals" id="varietals"></a></li>
+				<li><a href="/wineries/" title="Wineries" alt="Wineries" id="wineries"></a></li>
+				<li><a href="http://blog.forthevin.com" title="Blog" alt="Blog" id="blog" target = "_blank"></a></li>
 			</ul>
 		</div>			
 	</div>
@@ -56,8 +57,8 @@
 	</div>
 	<div id="footer">
 		<div id="contactbuttons">
-		<a href="https://www.facebook.com/forthevin" TARGET="_blank"><img src="http://www.buttonshut.com/Facebook-Buttons/Facebook-Buttons-24-88-.png" title="For The Vin on facebook" alt = "Link to facebook" width="32px" border="0"/></a>
-		<a href="http://www.linkedin.com/in/laujohnson" TARGET="_blank"><img src="http://www.buttonshut.com/LinkedIn-Buttons/linkedin-tiny-square2.png" title="Me on LinkedIn" alt = "Link to Linkedin" width="32px" border="0"/></a>
+		<a href="https://www.facebook.com/forthevin" target="_TOP" title="For The Vin" style="width: 111px;"><img src="https://badge.facebook.com/badge/152378291539976.909.1842132992.png" alt = "For The Vin on facebook"></a>
+		<!--<a href="http://www.linkedin.com/in/laujohnson" target="_top" title = "Me on LinkedIn"><img src="http://www.linkedin.com/img/webpromo/btn_in_20x15.png" width="20" height="15" alt="View Laura Johnson's LinkedIn profile"></a>-->
 		</div>	
 	</div>
 </div>

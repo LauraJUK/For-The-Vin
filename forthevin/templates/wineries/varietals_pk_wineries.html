@@ -3,62 +3,141 @@
 {% block title %}For The Vin - Winery Details{% endblock %}
 {% block addheadinfo %}	
 <style type="text/css">
-body {
-	background-color: #FFFFFF; 
-	font-family:"HelveticaNeue-Light","Helvetica Neue Light",Helvetica,Arial,sans-serif;
-	font-weight:normal
-	}
-a, a:link {
-	color:black
-	}
-	a:link {
-	display:block;
-	text-align:left;
-	text-decoration:none
-	}
-	a:hover {
-	color:#FF1493
-	}
 
+
+.hlist li {
+	display: inline;
+	list-style-type: none;
+	padding-bottom: 2em;
+	}
+	.hlist a {
+		float: left;
+		padding-right: 1em;
+		}
+		a:hover {
+		color:#ff1493;
+		text-decoration:none;
+		}
+.hlist {
+	font: normal normal normal 1em;
+	float: left;
+}
+.listcontainer {
+	overflow: auto;
+	width: 100%; 
+	margin-bottom: 1em;
+}
+.columncontainer {
+	float: left;
+	width: 100%;
+	background-color: #F0F0F0;
+	margin-bottom: 1.5em;
+}
 .column {
 	float:left; 
-	width:33%;
-	margin-bottom: 40px;
+	width:30%;
+	/*min-height: 295px;*/
+	margin-right: 2%;
+	padding: 0.5%;
 }
+#listcolors, #listvarietals {
+	padding: 0.5em;
+	background-color: #EEE;
+}
+.hlist .active {
+	font-weight: bold;
+	color:#ff1493;
+}
+
 </style>
 {% endblock %}
 </head>
-	
+
 <body>	
 {% block content %}
+{% load tags %}
 <div class="pagecontent">
-	<div class="pagetitle">
-	<h1>Wineries Good For {{ varietal.name }}</h1>
-	</div>
-{% if varietal.winery_set.all %}
+	<div class="titlecontainer">
+	<div id = "title">
+	<h1>Colors and Varietals</h1>
+	<h3>Select a color or a varietal to see wineries good for your selection</h3></div>
+</div>
 
-	    <!-- a forloop to limit the rows in a list-->
-    {% for winery in varietal.winery_set.all %}
-    	{% if forloop.first  %}
-    		
-    		<div class="clear"></div>
+<!--colors-->
+
+<div class = "listcontainer" id = "listcolors">
+{% if colors %}
+	<h2>Colors</h2>
+	<div class = "hlist">
+	{% for c in colors %}	
+	<a href="/varietals/{{c.name}}/" {% if c.name == color.name %}class = "active"{% endif %}>{{c.name|capfirst}}</a>
+	{% endfor %}
+		<a {% if not color %}class="active"{% endif %} href="/varietals/">All Colors</a>
+	</div>
+{% else %}
+    <p>We don't have any color choices.</p>
+{% endif %}
+</div>
+
+<!--varietals-->
+
+<div class = "listcontainer" id = "listvarietals"><!-- list the varietals of a color -->	
+{% if varietals %} 
+	<h2> {{ color.name|capfirst }} Varietals</h2>
+	{% for v in varietals %}
+	<div class = "hlist">
+		{% if v.name == varietal.name %}
+		<a href="/varietals/{{v.color.name}}/{{v.slug}}/" class = "active">{{v.name|capfirst}}</a>
+		{% else %}
+		<a href="/varietals/{{v.color.name}}/{{v.slug}}/">{{ v.name|capfirst }}</a>	
+		{% endif %}
+    </div>
+	{% endfor %}
+		
+{% else %}
+    <p>We don't have any varietals of that color.</p>	
+{% endif %}		
+</div>
+
+<!--wineries-->
+
+{% if show_wineries %}
+
+<div class="titlecontainer">
+	<div id = "title">
+	<h2>Wineries Good For {% if varietal %} {{ varietal|capfirst }} {% else %}{{ color.name|capfirst }} Wine {% endif %}</h2>
+</div></div>
+
+<div class = "listcontainer" id = "listwineries"><!-- list the wineries good for a color/varietal -->
+{% if wineries  %}
+	
+    {% for winery in wineries %}
+    	{% if forloop.first  %}  		
+    		<div class = "columncontainer">
     		<div class="column">
     	{% endif %}
-    	<div class="winery">
-    		<a href="/wineries/{{winery.slug}}/">{{ winery.name }}</a>
-    	</div>
-    	{% if forloop.counter|divisibleby:10  %}
-    		</div>
-    		<div class="clear"></div>
-    		<div class="column">
-    	{% endif %}
-    	
+	    	<div class="winery">
+	    		<a href="/wineries/{{winery.slug}}/">{{ winery.name }}</a>
+	    	</div>
+    	{% if forloop.counter|divisibleby:10  %} <!-- limits the rows in a list-->
+    		</div><!-- close the column div -->
+    	{% if forloop.counter|divisibleby:30 %}
+    		</div><!-- close the columncontainer div -->
+    	<div class = "columncontainer">
+    	{% endif %} 	
+    	<div class="column">
+    	{% endif %}    	
     {% endfor %}
 
 {% else %}
-    <p>We don't have any wineries listed as good for that varietal.</p>
-{% endif %}
-</div>
-</div>
+    <p>We don't have any wineries listed as good for that color.</p>
+
+{% endif %}<!--if wineries-->
+</div><!--column-->
+</div><!--columncontainer-->
+</div><!--listcontainer-->
+{% endif %}<!--if show_wineries-->
+</div><!--pagecontent-->
 {% endblock %}
+</div><!--content-->
 </body>

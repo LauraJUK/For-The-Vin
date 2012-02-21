@@ -4,35 +4,21 @@
 {% block addheadinfo %}	
 <style type="text/css">
 
-a {
-	background:transparent
+.pagetitle {
+	margin-bottom: 40px;
 }
-
-a, a:link {
-	color:black
-}
-
-a:link {
-	display:block;
-	text-align:left;
-	padding:0;
-	text-decoration:none
-}
-
-a:hover {
-	color:#FF1493
-}
-table.center {
-	margin-left:auto;
-	margin-right:auto
-}
-td {
-	border-bottom: 1px solid #CCC;
+.columncontainer {
+	float: left;
+	width: 100%;
+	background-color: #EEE;
+	margin-bottom: 1.5em;
 }
 .column {
 	float:left; 
-	width:33%;
-	margin-bottom: 40px;
+	width:30%;
+	/*min-height: 295px;*/
+	margin-right: 2%;
+	padding: 0.5%;
 }
 
 </style>
@@ -45,34 +31,41 @@ td {
 
 {% block content %}
 <div class="pagecontent">
-	<div class="pagetitle">
-	<h1>List of Wineries</h1>
-	<h2>Click Winery Name For Details</h2>
+	<div class="titlecontainer">
+		<div id = "title">
+		<h1>Wineries</h1>
+		<h3>Click Winery Name For Details</h3></div>
 	</div>
+
+
 {% if wineries_list %}
-    
+
     {% for winery in wineries_list %}
     	{% if forloop.first  %}
-    		<div class="clear"></div>
+    		<div class = "columncontainer">
     		<div class="column">
     	{% endif %}
-    	<div class="winery">
-    		<a href="/wineries/{{ winery.slug }}/">{{ winery.name }}</a>
-    	</div>
+	    	<div class="winery">
+	    		<a href="/wineries/{{ winery.slug }}/">{{ winery.name }}</a>
+	    	</div>
     	{% if forloop.counter|divisibleby:10  %}
-    		</div>
-    		<div class="clear"></div>
-    		<div class="column">
-    	{% endif %}
-    	
-    	
+    		</div><!-- close the column div -->
+    	{% if forloop.counter|divisibleby:30 %}
+    	</div><!-- close the columncontainer div -->	
+    	<div class = "columncontainer">
+    	{% endif %} 		
+    	<div class="column">
+    	{% endif %}    	
     {% endfor %}
 
 {% else %}
     <p>No wineries are available.</p>
+
 {% endif %}
 </div>
 </div>
+</div>
+
 {% endblock %}
 </body>
 	

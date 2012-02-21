@@ -1,0 +1,133 @@
+
+#ftv {
+	color: black;
+	left:0px;
+	padding:0;
+	margin:60px 0 0;
+	width: 100%
+	}
+#header {
+	background-color:black;
+	width:100%;
+	height:60px;
+	top:0;
+	left:0;
+	position:fixed;
+	display: inline;
+	}
+	.headerleft {
+		float: left;
+		min-width: 180px;
+		width: 20%;
+		}	
+		#textlogo {
+			background:transparent url(../images/text_logo_whiteline_w135h60.png) repeat-x;
+			width:135px;
+			height:60px;
+			margin-left:2em;
+			float: left;
+			padding:0
+			}
+	#toc {
+	font-size: 1em;		
+	float: left;
+	padding: 0;
+		}
+			#home {
+			background:transparent url(../images/TOC-Home_w60h60.gif) repeat-x;
+			width:60px;
+			height:60px;
+			}
+			#varietals {
+			background:transparent url(../images/TOC_Varietals_w95h60.png) repeat-x;
+			width:95px;
+			height:60px;
+			}
+			#wineries {
+			background:transparent url(../images/TOC_Wineries_w95h60.png) repeat-x;
+			width:95px;
+			height:60px;
+			}
+			#blog {
+			background:transparent url(../images/TOC_Blog_w50h60.png) repeat-x;
+			width:50px;
+			height:60px;
+			}
+		#toc a,#toc a:link {
+			color:#fff
+		}
+		#toc a:link {
+			text-align:left;
+			margin-right: 2em;
+			display:block
+		}
+
+.sidebar {
+	min-width:160px;
+	width:20%;
+	margin: 0;
+	background-color: white;
+		}
+		.logospace {
+		height: 0px;
+		}
+		.logo {
+		background:transparent url(../images/logo_raspberry_grey_w150h250.png) repeat-x;
+		width:150px;
+		height:250px;
+		margin-left:1em;
+		margin-top:1em
+		}
+#content {
+	width: 60%;
+	max-width: 1060px;
+	padding-bottom: 60px:
+	text-align:left;
+	margin-right: 2em;
+	min-height: 350px
+	}
+		.titlecontainer {
+		padding-top: 2em;
+		padding-bottom:1em; 
+		width: 100%;
+		}
+		
+#footer {
+   	width:100%;
+   	height:60px;  
+   	float: left;
+   	display: block;
+		}
+		#contactbuttons {
+		/*margin-left: 20%;*/
+		padding-top: 1em;
+		
+		}
+		#footer a{
+		width: 32px;
+		float: left;
+		margin-right: 0.5em;
+		}
+#ftv,#toc a:link,.clearfix:after {
+	display:block
+}
+.sidebar,#content,#header,#logo, #toc, #toc li {
+	float:left;
+}
+
+.clearfix:before,
+.clearfix:after {
+    content:"";
+    display:table;
+}
+.clearfix:after {
+    clear:both;
+}
+/* For IE 6/7 (trigger hasLayout) */
+.clearfix {
+    zoom:1;
+}
+
+
+
+

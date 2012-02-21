@@ -4,39 +4,17 @@
 {% block addheadinfo %}	
 <style type="text/css">
 
-.pagetitle {
-	margin-bottom: 40px;
-}
-a {
-	background:transparent
+#title {
+	margin:0 auto;
 }
 
-a,a:link {
-	color:black
-}
-
-a:link {
-	display:block;
-	text-align:left;
-	padding:0;
-	text-decoration:none
-}
-
-a:hover {
-	color:#FF1493
-}
-table.center {
-	margin-left:auto;
-	margin-right:auto
-}
-td {
-	border-bottom: 1px solid #CCC;
-}
 .column {
 	float:left; 
 	width:33%;
-	margin-bottom: 40px;
+	margin-bottom: 10px;
+	min-height: 260px;
 }
+
 </style>
 {% endblock %}
 </head>
@@ -44,35 +22,32 @@ td {
 <body>	
 
 
-
 {% block content %}
 <div class="pagecontent">
-	<div class="pagetitle">	
-	<h1>List of Varietals</h1>
-	<h2>Click on a varietal to see which wineries are good for that varietal.</h2>
+	<div class="titlecontainer">
+		<div id = "title">
+			<h1>Varietals</h1>
+			<h2>Click on a varietal to see which wineries are good for that varietal</h2></div>
 	</div>
 	
-{% if varietals_list %}
-    	
-    {% for varietal in varietals_list %}   
-    	<!-- a forloop to limit the rows in a list--> 
-    	{% if forloop.first  %}
-    		
-    		<div class="clear"></div>
-    		<div class="column">
-    	{% endif %}
-    	<div class="varietal">
-    		<a href="/varietals/{{ varietal.slug }}/">{{ varietal.name }}</a>
-    	</div>
-    	{% if forloop.counter|divisibleby:10  %}
-    		</div>
-    		<div class="clear"></div>
-    		<div class="column">
-    	{% endif %}
-    
+
+{% if varietals %}
+    {% for varietal in varietals %}
+    	<div class="color">
+    		{{ color.name }}
+    	</div>  
     {% endfor %}
-    
-{% else %}
+    {% else %}
+    <p>No colors are available.</p>
+{% endif %}
+
+{% if varietals_list %}
+    {% for varietal in varietals_list %}   
+    	<div class="varietal">
+    		<a href="/varietals/{{ varietal.color.name }}/{{ varietal.slug }}/">{{ varietal.name }}</a>
+    	</div>
+    {% endfor %}
+	{% else %}
     <p>No varietals are available.</p>
 {% endif %}
 

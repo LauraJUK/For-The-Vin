@@ -12,22 +12,16 @@
 .linkmats {
 	float: left;
 	width:230px;
+	min-height: 170px;
 	padding:1em;
 	margin-right:50px;
+	margin-bottom:1em;
 	background-color: #E0E0E0;
-	min-height: 170px
-}	
-a:link {
-	text-decoration:none;
+
 }
-a,a:link {
-	color:black;
-	text-decoration:none;
-}
-a:hover {
-	color:#ff1493;
-	text-decoration:none;
-}
+#intro {
+    float: left;
+  }	
 span {
 	color:#ff1493;
 }
@@ -35,7 +29,7 @@ p {
 	text-align: justify;
 }
 </style>
-<!--[if IE 7]>
+<!--[if (IE 6)|(IE 7)]>
 <style type="text/css">
 .linkmats {
 	min-height: 170px;
@@ -50,11 +44,12 @@ p {
 <body>
 {% block content %}
 <div class="pagecontent">
-<div class="pagetitle">
-	<h1>Planning a trip to Napa but don't know which wineries to visit? <br /> We (well, I) can help.</h1>
-	<p>For The Vin is a website that helps you plan a trip to wine country. You can select a wine you like and see the wineries that are good for that wine, or you can see details about a winery and find similar wineries that you might like to visit.</p>
-	<h2>Get Started:</h2>
-</div>
+	<div class="titlecontainer">
+		<div id = "title">
+		<h1>Planning a trip to Napa but don't know which wineries to visit? <br /> We (well, I) can help.</h1>
+		<p>For The Vin is a website that helps you plan a trip to wine country. You can select a wine you like and see the wineries that are good for that wine, or you can see details about a winery and find similar wineries that you might like to visit.</p>
+		<h2>Get Started:</h2></div>
+	</div>
 <div class="columns">
 	<div class="linkmats">		
 		<a href="/varietals/" title="Varietals" id="varietalsmat">

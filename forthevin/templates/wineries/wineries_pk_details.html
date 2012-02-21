@@ -9,16 +9,7 @@ ul, ol {
 	padding-left: 0; 
 	margin-left: 0
 	}
-a, a:link {
-	color:black
-	}
-	a:link {
-	text-align:left;
-	text-decoration:none
-	}
-	a:hover {
-	color:#FF1493
-	}
+
 #varietalname {
 	font-weight: bold;
 	margin-top: 20px;
@@ -34,7 +25,8 @@ a, a:link {
 <body>	
 {% block content %}
 <div class="pagecontent">
-	<div class="pagetitle">
+	<div class="titlecontainer">
+		<div id = "title">
 		<h1>{{ winery.name }}</h1>
 		<h3><ol>
 			<li><a href="{{ winery.address1 }}" target = "_blank">Click Here To Go To Their Website</a></li>
@@ -42,7 +34,7 @@ a, a:link {
 			<li>{{ winery.city }}</li>
 			<li>{{ winery.state }}</li>
 			<li>{{ winery.zip }}</li>
-		</ol></h3>
+		</ol></h3></div>
 	</div>
 	<!--<h2>Wines</h2>
 	<ul>
@@ -54,12 +46,12 @@ a, a:link {
 	<ul>		
 	{% for varietal in winery.varietals.all %}
 		<li><div id="varietalname">
-				<a href="/varietals/{{ varietal.slug }}/">{{ varietal.name }}</a>
+				<a href="/varietals/{{ varietal.color.name }}/{{varietal.slug}}/">{{ varietal.name|upper }}</a>
     		</div><br>This varietal is also at:<br> 
 		{% for w in varietal.winery_set.all|slice:":4" %}
 			<span><a href="/wineries/{{ w.slug }}/">{{ w.name }}</a>{% if not forloop.last %},{% endif %}</span>
 		{% endfor %}
-			<a href="/varietals/{{ varietal.slug }}/">... see more.</a>
+			<a href="/varietals/{{ varietal.color.name }}/{{varietal.slug}}/">... see more.</a>
 		</li>
 	{% endfor %}
 	</ul>

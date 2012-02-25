@@ -28,11 +28,11 @@
 			float: left;
 			padding:0
 			}
-	#toc {
-	font-size: 1em;		
-	float: left;
-	padding: 0;
-		}
+		#toc {
+		font-size: 1em;		
+		float: left;
+		padding: 0;
+			}
 			#home {
 			background:transparent url(../images/TOC-Home_w60h60.gif) repeat-x;
 			width:60px;
@@ -54,7 +54,7 @@
 			height:60px;
 			}
 		#toc a,#toc a:link {
-			color:#fff
+			color:gray;
 		}
 		#toc a:link {
 			text-align:left;
@@ -94,20 +94,19 @@
 		
 #footer {
    	width:100%;
-   	height:60px;  
    	float: left;
    	display: block;
 		}
 		#contactbuttons {
 		/*margin-left: 20%;*/
 		padding-top: 1em;
-		
 		}
-		#footer a{
-		width: 32px;
-		float: left;
-		margin-right: 0.5em;
-		}
+		a#facebook {
+			background:transparent url("https://badge.facebook.com/badge/152378291539976.909.1842132992.png") repeat-x;
+			width:111px;
+			height:84px;
+			display: block;
+			}
 #ftv,#toc a:link,.clearfix:after {
 	display:block
 }

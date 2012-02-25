@@ -10,10 +10,13 @@ class Color(models.Model):
     name = models.CharField(max_length=90)
     slug = models.SlugField()
     
+    def __unicode__(self):
+        return self.name
+    
 class Varietal(models.Model):
     name = models.CharField(max_length=100)
     slug = models.SlugField()
-    color = models.ForeignKey(Color)
+    color = models.ForeignKey(Color, blank=True, null=True)
                     
     def __unicode__(self):
         return self.name

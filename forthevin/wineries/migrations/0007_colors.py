@@ -1,42 +1,17 @@
 # encoding: utf-8
 import datetime
 from south.db import db
-from south.v2 import SchemaMigration
+from south.v2 import DataMigration
 from django.db import models
 
-class Migration(SchemaMigration):
+class Migration(DataMigration):
 
     def forwards(self, orm):
+        db.alter_column('wineries_varietal', 'color_id', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['wineries.Color']))
         
-        # Adding model 'Color'
-        db.create_table('wineries_color', (
-            ('id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
-            ('name', self.gf('django.db.models.fields.CharField')(max_length=90)),
-            ('slug', self.gf('django.db.models.fields.SlugField')(max_length=50, db_index=True)),
-        ))
-        db.send_create_signal('wineries', ['Color'])
-       
-        # Renaming column for 'Varietal.color' to match new field type.
-        db.rename_column('wineries_varietal', 'color', 'color_id')
-        # Changing field 'Varietal.color'
-        #db.alter_column('wineries_varietal', 'color_id', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['wineries.Color']))
 
-        # Adding index on 'Varietal', fields ['color']
-        #db.create_index('wineries_varietal', ['color_id'])
-
-        
     def backwards(self, orm):
-        
-        # Removing index on 'Varietal', fields ['color']
-        db.delete_index('wineries_varietal', ['color_id'])
-
-        # Deleting model 'Color'
-        db.delete_table('wineries_color')
-
-        # Renaming column for 'Varietal.color' to match new field type.
-        db.rename_column('wineries_varietal', 'color_id', 'color')
-        # Changing field 'Varietal.color'
-        db.alter_column('wineries_varietal', 'color', self.gf('django.db.models.fields.IntegerField')())
+        "Write your backwards methods here."
 
 
     models = {
@@ -54,7 +29,7 @@ class Migration(SchemaMigration):
         },
         'wineries.varietal': {
             'Meta': {'ordering': "['name']", 'object_name': 'Varietal'},
-            'color': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['wineries.Color']"}),
+            'color': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['wineries.Color']", 'null': 'True', 'blank': 'True'}),
             'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
             'name': ('django.db.models.fields.CharField', [], {'max_length': '100'}),
             'slug': ('django.db.models.fields.SlugField', [], {'max_length': '50', 'db_index': 'True'})

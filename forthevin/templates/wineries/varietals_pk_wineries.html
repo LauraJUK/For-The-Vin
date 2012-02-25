@@ -4,25 +4,7 @@
 {% block addheadinfo %}	
 <style type="text/css">
 
-
-.hlist li {
-	display: inline;
-	list-style-type: none;
-	padding-bottom: 2em;
-	}
-	.hlist a {
-		float: left;
-		padding-right: 1em;
-		}
-		a:hover {
-		color:#ff1493;
-		text-decoration:none;
-		}
-.hlist {
-	font: normal normal normal 1em;
-	float: left;
-}
-.listcontainer {
+.listcontainer, .menucontainer {
 	overflow: auto;
 	width: 100%; 
 	margin-bottom: 1em;
@@ -32,24 +14,53 @@
 	width: 100%;
 	background-color: #F0F0F0;
 	margin-bottom: 1.5em;
-}
-.column {
-	float:left; 
-	width:30%;
-	/*min-height: 295px;*/
-	margin-right: 2%;
-	padding: 0.5%;
-}
+	}
+	.column {
+		float:left; 
+		width:30%;
+		margin-right: 2%;
+		padding: 0.5%;
+	}
+.menu {
+	float: left;
+	min-height: 190px;
+	padding:1em;
+	margin-bottom:1em;
+	background-color: #E0E0E0;
+	font-size: 80%;
+	}
+	.menu a {
+		padding-right: 1em;
+	}
+	.menu .active {
+	font-weight: bold;
+	color:#ff1493;
+	}	
 #listcolors, #listvarietals {
 	padding: 0.5em;
 	background-color: #EEE;
 }
-.hlist .active {
-	font-weight: bold;
-	color:#ff1493;
+#listcolors {
+	width: 30%;
+	margin-right: 5%;
+	}
+	#listcolors a {
+	display: block;
+	}
+#listvarietals {
+	width: 60%;
 }
 
 </style>
+<!--[if (IE 6)|(IE 7)]>
+<style type="text/css">
+.menu {
+	min-height: 190px;
+	height:auto !important; 
+	height:190px;
+}
+</style>
+<![endif]-->
 {% endblock %}
 </head>
 
@@ -63,41 +74,41 @@
 	<h3>Select a color or a varietal to see wineries good for your selection</h3></div>
 </div>
 
-<!--colors-->
+<div class = "menucontainer">
 
-<div class = "listcontainer" id = "listcolors">
-{% if colors %}
-	<h2>Colors</h2>
-	<div class = "hlist">
-	{% for c in colors %}	
-	<a href="/varietals/{{c.name}}/" {% if c.name == color.name %}class = "active"{% endif %}>{{c.name|capfirst}}</a>
-	{% endfor %}
-		<a {% if not color %}class="active"{% endif %} href="/varietals/">All Colors</a>
+<!--colors-->
+	<div class = "menu" id = "listcolors">
+	{% if colors %}
+		<h2>Colors</h2>
+		<!--<div class = "hlist">-->
+		{% for c in colors %}	
+		<a href="/varietals/{{c.name}}/" {% if c.name == color.name %}class = "active"{% endif %}>{{c.name|capfirst}}</a>
+		{% endfor %}
+			<a {% if not color %}class="active"{% endif %} href="/varietals/">All</a>
+		<!--</div>-->
+	{% else %}
+	    <p>We don't have any color choices.</p>
+	{% endif %}
 	</div>
-{% else %}
-    <p>We don't have any color choices.</p>
-{% endif %}
-</div>
 
 <!--varietals-->
 
-<div class = "listcontainer" id = "listvarietals"><!-- list the varietals of a color -->	
-{% if varietals %} 
-	<h2> {{ color.name|capfirst }} Varietals</h2>
-	{% for v in varietals %}
-	<div class = "hlist">
-		{% if v.name == varietal.name %}
-		<a href="/varietals/{{v.color.name}}/{{v.slug}}/" class = "active">{{v.name|capfirst}}</a>
-		{% else %}
-		<a href="/varietals/{{v.color.name}}/{{v.slug}}/">{{ v.name|capfirst }}</a>	
-		{% endif %}
-    </div>
-	{% endfor %}
-		
-{% else %}
-    <p>We don't have any varietals of that color.</p>	
-{% endif %}		
+	<div class = "menu" id = "listvarietals"><!-- list the varietals of a color -->	
+	{% if varietals %} 
+		<h2> {{ color.name|capfirst }} Varietals</h2>
+		<!--<div class = "hlist">-->
+		{% for v in varietals %}
+			<a href="/varietals/{{v.color.name}}/{{v.slug}}/" {% if v.name == varietal.name %}class = "active"{% endif %}>{{v.name|capfirst}}</a>
+		{% endfor %}
+		<!--</div>	-->
+	{% else %}
+	    <p>We don't have any varietals of that color.</p>	
+	{% endif %}		
+	</div>
+
 </div>
+
+<div class = "clearfix"></div>
 
 <!--wineries-->
 

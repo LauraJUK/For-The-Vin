@@ -1,7 +1,21 @@
 # Django settings for forthevin project.
 import sys, os
-DEBUG = True
-TEMPLATE_DEBUG = DEBUG
+import socket
+if socket.gethostname() == 'Laura-Johnsons-MacBook.local':
+    #Development (Local) Server Settings go here
+    DEBUG = TEMPLATE_DEBUG = True
+    ADMIN_MEDIA_PREFIX = '/static/admin/'
+    TEMPLATE_DIRS = ('/Users/laurajohnson/Documents/Aptana Studio 3 Workspace/forthevin/forthevin/templates/',)
+    STATICFILES_DIRS = ('/Users/laurajohnson/Documents/Aptana Studio 3 Workspace/forthevin/forthevin/static/',)
+else:
+    #Production (Live) Server Settings go here
+    DEBUG = TEMPLATE_DEBUG = False
+    ADMIN_MEDIA_PREFIX = 'http://forthevin.com/static/admin/'
+    TEMPLATE_DIRS = ('/app/forthevin/templates',)
+    STATICFILES_DIRS = ('/app/forthevin/static/',)
+    
+#DEBUG = True
+#TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
     ('Laura Johnson', 'laura.lj.johnson@gmail.com'),
@@ -64,6 +78,7 @@ STATIC_ROOT = ''
 
 
 STATIC_MEDIA_ROOT = os.path.join(DIRNAME, 'static/')
+
 # URL prefix for static files.
 # Example: "http://media.lawrence.com/static/"
 STATIC_URL = '/static/'
@@ -71,15 +86,19 @@ STATIC_URL = '/static/'
 # URL prefix for admin static files -- CSS, JavaScript and images.
 # Make sure to use a trailing slash.
 # Examples: "http://foo.com/static/admin/", "/static/admin/".
-ADMIN_MEDIA_PREFIX = '/static/admin/'
+# I moved this to the top of this file.  
+# ADMIN_MEDIA_PREFIX = 'http://forthevin.com/static/admin/'
+
 
 # Additional locations of static files
-STATICFILES_DIRS = (
-                    '/Users/laurajohnson/Documents/Aptana Studio 3 Workspace/forthevin/forthevin/static/',
+# I moved this to the top of this file.
+#STATICFILES_DIRS = (
+                    # '/Users/laurajohnson/Documents/Aptana Studio 3 Workspace/forthevin/forthevin/static/',
+                    # '/app/forthevin/static/',
     # Put strings here, like "/home/html/static" or "C:/www/django/static".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
-)
+#)
 
 # List of finder classes that know how to find static files in
 # various locations.
@@ -118,12 +137,13 @@ TEMPLATE_CONTEXT_PROCESSORS = (
 
 ROOT_URLCONF = 'forthevin.urls'
 
-TEMPLATE_DIRS = (
-    '/Users/laurajohnson/Documents/Aptana Studio 3 Workspace/forthevin/forthevin/templates',
+# I moved this to the top of this file.  
+# TEMPLATE_DIRS = (
+    # '/app/forthevin/templates',
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
-)
+#)
 
 INSTALLED_APPS = (
     'django.contrib.auth',

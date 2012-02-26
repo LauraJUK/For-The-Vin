@@ -6,19 +6,7 @@
 <link rel="stylesheet" href="{% get_static_prefix %}css/ftvbase.css" type="text/css" media="screen" />
 <style type="text/css">
 
-.columns {
-	display: inline;
-}
-.linkmats {
-	float: left;
-	width:230px;
-	min-height: 170px;
-	padding:1em;
-	margin-right:50px;
-	margin-bottom:1em;
-	background-color: #E0E0E0;
 
-}
 #intro {
     float: left;
   }	
@@ -27,6 +15,24 @@ span {
 }
 p {
 	text-align: justify;
+}
+#colors a {
+	padding-right: 1.5em;
+	display: block;
+}
+.columns {
+	/*display: inline;*/
+	overflow: auto;
+	width: 100%; 
+}
+.linkmats {
+	float: left;
+	width:29%;
+	min-height: 170px;
+	padding:1%;
+	margin-right:2%;
+	margin-bottom:1em;
+	background-color: #E0E0E0;
 }
 </style>
 <!--[if (IE 6)|(IE 7)]>
@@ -48,29 +54,49 @@ p {
 		<div id = "title">
 		<h1>Planning a trip to Napa but don't know which wineries to visit? <br /> We (well, I) can help.</h1>
 		<p>For The Vin is a website that helps you plan a trip to wine country. You can select a wine you like and see the wineries that are good for that wine, or you can see details about a winery and find similar wineries that you might like to visit.</p>
-		<h2>Get Started:</h2></div>
+		<h2>Get Started</h2>
+		<p>Search by color to find wineries good for that color, or get more fancy by searching by varietal. You can also search for wineries that you already know and like, to find similar wineries.</p>
+		</div>
 	</div>
+
 <div class="columns">
+	
+	<div class="linkmats" id = "colors">	
+	{% if colors %}	
+		<h2>Wine Color</h2>	
+		{% for c in colors %}	
+		<a href="/varietals/{{c.name}}/">{{c.name|capfirst}}</a>
+		{% endfor %}
+		{% else %}
+	    <p>We don't have any color choices.</p>
+	{% endif %}
+	</div>
+	
 	<div class="linkmats">		
 		<a href="/varietals/" title="Varietals" id="varietalsmat">
 			<h2>Wine Varietal</h2>
-			<h4>Click here to see the wineries that are good for the wines you like.</h4>
+			<h4>Click here to see the wineries that are good for the specific varietals you like.</h4>
 		</a>
 	</div>	
+	
 	<div class="linkmats">		
 		<a href="/wineries/" title="Wineries" id="wineriesmat">
 			<h2>Winery</h2>
-			<h4>Click here to learn about the wineries and the wines they produce. I'll add more to our list of wineries soon.</h4>
+			<h4>Learn about your favorite winery, and similar wineries. I'll add more to the list of wineries soon.</h4>
 		</a>
 	</div>
+
 </div>	
+
 <div class="clearfix"></div>
+
 <div id = "intro">
 	<h2>Background</h2>
 	<p>I’ve been building For The Vin since I tried to plan a trip to Napa and realised that I didn’t know how to choose from all of the hundreds of wineries and tasting rooms there. I thought it would be a good idea to at least narrow down my choice based on the sorts of wines I like. I’m a big Pinot Noir fan so I’ll probably like the wineries that produce excellent Pinot Noirs. I realise that people do manage to go to Napa and have a great time, regardless of the sorts of wineries they end up at. I’m just trying to make the experience better, more customised.</p>
 	<p>Ultimately, I want For The Vin to be a trip planning tool where you can select which wine varietal you like, and how many wineries you want to visit, and it will generate a list of wineries that are relatively close to, or easy to get to from, each other, with maps and directions. To find out more about the story of For The Vin, go to <a href="http://blog.forthevin.com" target = "_blank">blog.forthevin.com</a></p>
 	<p>I’ve been working on For The Vin around my full-time job of being a tax accountant, and I’ve needed to learn how to do everything you see on this site - and everything behind the scenes. At the moment, For The Vin is just a tool for browsing, but the better, more comprehensive site is in development. Hopefully you’ll still get something out of the current version of the site. Finally, let me know if you have any comments, questions, or suggestions! I’m <span>laura@forthevin.com</span></p>
 </div>
+
 </div>
 {% endblock %}
 </body>

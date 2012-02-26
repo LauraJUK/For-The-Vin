@@ -6,9 +6,9 @@ from django.views.generic import DetailView, ListView
 from wineries.models import Varietal
 
 
-urlpatterns = patterns('',
+urlpatterns = patterns('forthevin.wineries.views',
 
-    (r'^$', 'forthevin.views.join'),
+    (r'^$', 'join'),
     
     
     (r'^wineries/', include('wineries.urls_wineries')),

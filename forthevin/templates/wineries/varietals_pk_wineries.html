@@ -23,11 +23,10 @@
 	}
 .menu {
 	float: left;
-	min-height: 190px;
+	min-height: 195px;
 	padding:1em;
 	margin-bottom:1em;
 	background-color: #E0E0E0;
-	font-size: 80%;
 	}
 	.menu a {
 		padding-right: 1em;
@@ -55,9 +54,9 @@
 <!--[if (IE 6)|(IE 7)]>
 <style type="text/css">
 .menu {
-	min-height: 190px;
+	min-height: 195px;
 	height:auto !important; 
-	height:190px;
+	height:195px;
 }
 </style>
 <![endif]-->
@@ -80,12 +79,10 @@
 	<div class = "menu" id = "listcolors">
 	{% if colors %}
 		<h2>Colors</h2>
-		<!--<div class = "hlist">-->
 		{% for c in colors %}	
 		<a href="/varietals/{{c.name}}/" {% if c.name == color.name %}class = "active"{% endif %}>{{c.name|capfirst}}</a>
 		{% endfor %}
 			<a {% if not color %}class="active"{% endif %} href="/varietals/">All</a>
-		<!--</div>-->
 	{% else %}
 	    <p>We don't have any color choices.</p>
 	{% endif %}

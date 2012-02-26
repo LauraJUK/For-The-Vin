@@ -4,11 +4,19 @@ from django.core.urlresolvers import reverse
 from django.http import Http404
 from django.template import RequestContext
 from forthevin.wineries.models import *
+from django.db.models import Count
+
+def join(request, color=None, slug=None):
+    data = {}
+#    data['colors'] = Color.objects.order_by('name')
+#    data['varietals'] = Varietal.objects.annotate(color_count=Count('color')).order_by('-color')
+    data['colors'] = Color.objects.annotate(varietal_count=Count('varietal')).order_by('-varietal_count')
+    return render_to_response('wineries/join.html', data, context_instance=RequestContext(request))
 
 def wineries(request, color=None, slug=None):
     data = {}
     show_wineries = False
-    data['colors'] = Color.objects.all()
+    data['colors'] = Color.objects.annotate(varietal_count=Count('varietal')).order_by('-varietal_count')
     if color: #if color has been selected (in url), we want to show varietals of that color
         c = Color.objects.get(name=color) #c is a model object; color is a string
         data['color'] = c

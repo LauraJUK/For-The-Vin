@@ -3,13 +3,13 @@
 <html lang="en">
 <head>
     <title>For The Vin - Page Unavailable</title>
+    {% load static %}
 </head>
 <body>
-    <h1>Page unavailable</h1>
-
-    <p>Sorry, but the requested page is unavailable due to a
-    server hiccup.</p>
-
-    <p>Our engineers (me!) have been notified, so check back later.</p>
+<h1>Page unavailable</h1>
+<p>Sorry, but the requested page is unavailable due to a server hiccup.</p>
+<div id = "noidea">
+<img src="{% get_static_prefix %}images/no-idea-what-im-doing-dog_w500h383.jpg" alt="I Have No Idea What I'm Doing" width="500" height="383" />
+</div>
 </body>
 </html>

@@ -3,7 +3,7 @@ import sys, os
 import socket
 if socket.gethostname() == 'Laura-Johnsons-MacBook.local':
     #Development (Local) Server Settings go here
-    DEBUG = TEMPLATE_DEBUG = True
+    DEBUG = TEMPLATE_DEBUG = False
     ADMIN_MEDIA_PREFIX = '/static/admin/'
     TEMPLATE_DIRS = ('/Users/laurajohnson/Documents/Aptana Studio 3 Workspace/forthevin/forthevin/templates/',)
     STATICFILES_DIRS = ('/Users/laurajohnson/Documents/Aptana Studio 3 Workspace/forthevin/forthevin/static/',)

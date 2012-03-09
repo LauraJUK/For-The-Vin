@@ -9,7 +9,8 @@ from wineries.models import Varietal
 urlpatterns = patterns('forthevin.wineries.views',
 
     (r'^$', 'join'),
-    
+    (r'^map/', 'map'),
+
     
     (r'^wineries/', include('wineries.urls_wineries')),
     (r'^varietals/', include('wineries.urls_varietals')),  

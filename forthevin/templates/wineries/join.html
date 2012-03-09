@@ -44,6 +44,9 @@ p {
 }
 </style>
 <![endif]-->
+
+
+
 {% endblock %}
 </head>
 
@@ -96,6 +99,10 @@ p {
 	<p>Ultimately, I want For The Vin to be a trip planning tool where you can select which wine varietal you like, and how many wineries you want to visit, and it will generate a list of wineries that are relatively close to, or easy to get to from, each other, with maps and directions. To find out more about the story of For The Vin, go to <a href="http://blog.forthevin.com" target = "_blank">blog.forthevin.com</a></p>
 	<p>I’ve been working on For The Vin around my full-time job of being a tax accountant, and I’ve needed to learn how to do everything you see on this site - and everything behind the scenes. At the moment, For The Vin is just a tool for browsing, but the better, more comprehensive site is in development. Hopefully you’ll still get something out of the current version of the site. Finally, let me know if you have any comments, questions, or suggestions! I’m <span>laura@forthevin.com</span></p>
 </div>
+
+<body onload="initialize()">
+ <div id="map_canvas" style="width: 400px; height: 300px;">map div</div>
+</body>
 
 </div>
 {% endblock %}

@@ -13,6 +13,10 @@ def join(request, color=None, slug=None):
     data['colors'] = Color.objects.annotate(varietal_count=Count('varietal')).order_by('-varietal_count')
     return render_to_response('wineries/join.html', data, context_instance=RequestContext(request))
 
+def map(request):
+    data = {}
+    return render_to_response('wineries/gmaps.html', data, context_instance=RequestContext(request))
+
 def wineries(request, color=None, slug=None):
     data = {}
     show_wineries = False

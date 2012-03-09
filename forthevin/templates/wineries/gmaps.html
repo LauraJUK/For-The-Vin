@@ -1,28 +1,37 @@
-{% extends "wineries/base.html" %}
+<!--<!DOCTYPE html>
+<html>
 <head>
-{% block title %}For The Vin - List of Wineries{% endblock %}
-{% block addheadinfo %}	
+<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
 <style type="text/css">
-
-.pagetitle {
-	margin-bottom: 40px;
-}
-.columncontainer {
-	float: left;
-	width: 100%;
-	background-color: #E0E0E0;
-	margin-bottom: 1.5em;
-}
-.column {
-	float:left; 
-	width:30%;
-	/*min-height: 295px;*/
-	margin-right: 2%;
-	padding: 0.5%;
-}
-
+  html { height: 100% }
+  body { height: 100%; margin: 0; padding: 0 }
+  #map_canvas { height: 100% }
 </style>
+<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?&sensor=false">
+</script>
+<script type="text/javascript">
+  function initialize() {
+    var myOptions = {
+      center: new google.maps.LatLng(-34.397, 150.644),
+      zoom: 8,
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+    };
+    var map = new google.maps.Map(document.getElementById("map_canvas"),
+        myOptions);
+  }
+</script>
+</head>
 
+
+<body onload="initialize()">
+<div id="map_canvas" style="width:100%; height:100%"></div>
+</body>
+</html>-->
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Google Maps JavaScript API v3 Example: Styled MapTypes</title>
 <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
 <script>
 
@@ -47,11 +56,17 @@ function initialize() {
       { hue: "#ff0080" }
     ]
   },{
+  	featureType: "road.local",
+    elementType: "geometry",
+    stylers: [
+      { visibility: "simplified" }
+    ]
+  },{
     featureType: "road",
     elementType: "labels",
     stylers: [
-      { visibility: "on" },
-      { hue: "#ff0080" },
+      { visibility: "simplified" },
+      { hue: "#fff" },
       { saturation: -55 },
       { lightness: 10 }
     ]
@@ -74,7 +89,7 @@ function initialize() {
 
  var mapOptions = {
  zoom: 14,
- center: london
+ center: "london",
  };
 
  map = new google.maps.Map(document.getElementById("map_canvas"),
@@ -92,54 +107,8 @@ function initialize() {
 }
 </script>
 
-{% endblock %}
 </head>
-	
-<body>	
-
-
-{% block content %}
-<div class="pagecontent">
-	<div class="titlecontainer">
-		<div id = "title">
-		<h1>Wineries</h1>
-		<h3>Click Winery Name For Details</h3></div>
-	</div>
-
-
-{% if wineries_list %}
-
-    {% for winery in wineries_list %}
-    	{% if forloop.first  %}
-    		<div class = "columncontainer">
-    		<div class="column">
-    	{% endif %}
-	    	<div class="winery">
-	    		<a href="/wineries/{{ winery.slug }}/">{{ winery.name }}</a>
-	    	</div>
-    	{% if forloop.counter|divisibleby:10  %}
-    		</div><!-- close the column div -->
-    	{% if forloop.counter|divisibleby:30 %}
-    	</div><!-- close the columncontainer div -->	
-    	<div class = "columncontainer">
-    	{% endif %} 		
-    	<div class="column">
-    	{% endif %}    	
-    {% endfor %}
-
-{% else %}
-    <p>No wineries are available.</p>
-
-{% endif %}
-</div>
-</div>
-
 <body onload="initialize()">
  <div id="map_canvas" style="width: 400px; height: 300px;">map div</div>
 </body>
-
-</div>
-
-{% endblock %}
-</body>
-	
+</html>

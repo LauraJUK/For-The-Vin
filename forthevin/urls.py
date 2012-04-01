@@ -28,6 +28,6 @@ urlpatterns = patterns('forthevin.wineries.views',
 
 if True:
    urlpatterns += patterns('',
-       (r'^static/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.STATIC_MEDIA_ROOT }),
+       (r'^static/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.STATIC_ROOT }),
    )
 

@@ -7,8 +7,11 @@ from django.db import models
 class Migration(DataMigration):
 
     def forwards(self, orm):
-        #db.alter_column('wineries_varietal', 'color_id', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['wineries.Color']))
-        pass
+        for winery in orm.Winery.objects.all():
+            winery.website = winery.address1
+            winery.save()
+            
+
 
     def backwards(self, orm):
         "Write your backwards methods here."
@@ -45,14 +48,17 @@ class Migration(DataMigration):
         'wineries.winery': {
             'Meta': {'ordering': "['name']", 'object_name': 'Winery'},
             'address1': ('django.db.models.fields.CharField', [], {'max_length': '100'}),
-            'address2': ('django.db.models.fields.CharField', [], {'max_length': '100'}),
+            'address2': ('django.db.models.fields.CharField', [], {'max_length': '250', 'blank': 'True'}),
             'city': ('django.db.models.fields.CharField', [], {'max_length': '100'}),
+            'country': ('django.db.models.fields.CharField', [], {'max_length': '100', 'blank': 'True'}),
             'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
+            'latlng': ('django.db.models.fields.CharField', [], {'max_length': '100', 'blank': 'True'}),
             'name': ('django.db.models.fields.CharField', [], {'max_length': '100'}),
             'slug': ('django.db.models.fields.SlugField', [], {'max_length': '50', 'db_index': 'True'}),
-            'state': ('django.db.models.fields.CharField', [], {'max_length': '20'}),
+            'state': ('django.db.models.fields.CharField', [], {'max_length': '250', 'null': 'True', 'blank': 'True'}),
             'varietals': ('django.db.models.fields.related.ManyToManyField', [], {'to': "orm['wineries.Varietal']", 'symmetrical': 'False'}),
-            'zip': ('django.db.models.fields.CharField', [], {'max_length': '100'})
+            'website': ('django.db.models.fields.CharField', [], {'max_length': '256', 'null': 'True', 'blank': 'True'}),
+            'zip': ('django.db.models.fields.CharField', [], {'max_length': '20'})
         }
     }
 

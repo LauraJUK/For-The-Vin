@@ -1,3 +1,9 @@
-#Tue Jan 03 22:03:07 PST 2012
+#Sun Mar 18 22:00:05 PDT 2012
 eclipse.preferences.version=1
 encoding//forthevin/wineries/migrations/0001_initial.py=utf-8
+encoding//forthevin/wineries/migrations/0003_auto__add_field_varietal_slug__add_field_varietal_color__add_field_win.py=utf-8
+encoding//forthevin/wineries/migrations/0005_auto__add_field_varietal_color.py=utf-8
+encoding//forthevin/wineries/migrations/0006_auto__add_color__chg_field_varietal_color.py=utf-8
+encoding//forthevin/wineries/migrations/0007_colors.py=utf-8
+encoding//forthevin/wineries/migrations/0008_auto__add_field_winery_country__add_field_winery_latlng__chg_field_win.py=utf-8
+encoding//forthevin/wineries/migrations/0010_address_to_website.py=utf-8

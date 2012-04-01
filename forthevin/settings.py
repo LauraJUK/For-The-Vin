@@ -11,7 +11,7 @@ else:
     #Production (Live) Server Settings go here
     DEBUG = TEMPLATE_DEBUG = False
     ADMIN_MEDIA_PREFIX = 'http://forthevin.com/static/admin/'
-    TEMPLATE_DIRS = ('/app/forthevin/templates',)
+    TEMPLATE_DIRS = ('/app/forthevin/templates/',)
     STATICFILES_DIRS = ('/app/forthevin/static/',)
     
 #DEBUG = True
@@ -74,7 +74,8 @@ MEDIA_URL = '/media/'
 # Don't put anything in this directory yourself; store your static files
 # in apps' "static/" subdirectories and in STATICFILES_DIRS.
 # Example: "/home/media/media.lawrence.com/static/"
-STATIC_ROOT = ''
+# STATIC_ROOT = ''
+STATIC_ROOT = os.path.join(DIRNAME, '/static/')
 
 
 STATIC_MEDIA_ROOT = os.path.join(DIRNAME, 'static/')
